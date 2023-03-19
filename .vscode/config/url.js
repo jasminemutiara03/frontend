@@ -1,0 +1,1 @@
+export let URLPresensi = "https://gocroot.herokuapp.com/presensi";
