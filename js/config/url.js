@@ -1,0 +1,1 @@
+export let URLdhs = "https://gocrot.herokuapp.com/dhs";
