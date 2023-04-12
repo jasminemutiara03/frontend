@@ -1,12 +1,28 @@
-import { addChild } from "https://jscroot.github.io/element/croot.js";
-import {getRandomColor,getRandomColorName} from "https://jscroot.github.io/image/croot.js";
-import {dhsTag,dhsClass,dhsContent} from "../template/table.js";
 
-export function isiTableDhs(results){
-    results.forEach(isiRow);
+import { addInner } from "https://jscroot.github.io/element/croot.js";
+import { get } from "https://jscroot.github.io/api/croot.js"; 
+import { getRandomColorName } from "./randomcol.js";
+import { rowtabel, svg, em } from "../template/table.js";
+import { URLDhs } from "../config/url.js";
+get(URLDhs, tabelContent);
+ 
+
+function tabelContent(result){
+    rencanastudiTable(result);
 }
 
-function isiRow(value){
-    let content=dhsContent.replace("#NAMA MATA KULIAH#",value.nama_matkul).replace("#KODE MATA KULIAH",value.kode_matkul).replace("#STATUS#",value.status).replace("#SKS#",value.sks).replace("#KELAS#",value.kelas());
-    addChild("dhs",dhsTag,dhsClass,content);
+function userTable(jsonParse){
+    let row = '';
+    jsonParse.forEach((element) => {
+    let emailcol = em.replace("#col#", getRandomColorName());
+    console.log(emailcol);
+    row = rowtabel.replace("#rencana_studi#", element.Rencanastudi.nama).
+        replace("#nama_matkul#", element.rencanastudi.nama_matkul).
+        replace("#kode_matkul#", element.renacanastudi.kode_matkul).
+        replace("#status#", element.rencanastudi.status).
+        replace("#sks#", element.rencanastudi.sks).
+        replace("#kelas#", element.rencanastudi.kelas).
+        replace("#SVG#", svgicon);
+    addInner("demo",row);
+    });
 }

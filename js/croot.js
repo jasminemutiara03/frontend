@@ -1,12 +1,12 @@
 import { get } from "https://jscroot.github.io/api/croot.js";
 import {setInner,addChild } from "https://jscroot.github.io/element/croot.js";
 import {getRandomColor,getRandomColorName} from "https://jscroot.github.io/image/croot.js";
-import {presensiTag,dhsClass,dhsContent} from "./template/table.js"
+import {dhsTag,dhsClass,dhsContent} from "./template/table.js"
 
 
-let URLPresensi = "https://gocrot.herokuapp.com/dhs";
+let URLDhs = "https://gocrot.herokuapp.com/dhs";
 
-get(URLDhs,isiTableDhs);
+get(URLminego,isiTableDhs);
 
 function isiTableDhs(results){
     results.forEach(isiRow);
